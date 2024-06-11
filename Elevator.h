@@ -1,0 +1,48 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "Elevator.generated.h"
+
+UCLASS()
+class UDEMY_O_A_API AElevator : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	AElevator();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+
+	UPROPERTY(EditAnywhere, Category="Movement")
+	FVector PlatformVelocity = FVector(100, 0, 0);
+	UPROPERTY(EditAnywhere, Category="Movement")
+	FVector PlatformVelocityA = PlatformVelocity;
+	UPROPERTY(EditAnywhere, Category="Movement")
+	FVector PlatformVelocityB = -PlatformVelocity;
+	UPROPERTY(EditAnywhere, Category="Movement")
+	float MovedDistance = 100;
+
+	UPROPERTY(EditAnywhere, Category="Movement")
+	FVector StartPoint;
+	UPROPERTY(EditAnywhere, Category="Movement")
+	FVector EndPoint;
+
+	FVector StartLocation;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Island")
+	bool SteppedOn;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Island")
+	bool SteppedOff;
+    
+	
+};
